@@ -1,8 +1,8 @@
 (function() {
 
-    describe('Demo', function() {
+    suite('Demo', function() {
 
-        it ('should pass', function() {
+        test('true should be true', function() {
             assert.isTrue(true);
         });
 

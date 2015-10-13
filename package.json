@@ -8,6 +8,13 @@
     "Unit testing",
     "Demo"
   ],
+  "author": {
+    "name": "Matthew Green",
+    "email": "mjgreen145@gmail.com",
+    "url": "https://github.com/mjgreen145"
+  },
+  "license": "Apache-2.0",
+  "repository": "https://github.com/mjgreen145/js-unit-test-demo",
   "devDependencies": {
     "chai": "~1.9.1",
     "karma": "~0.12.8",

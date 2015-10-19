@@ -16,14 +16,16 @@
   "license": "Apache-2.0",
   "repository": "https://github.com/mjgreen145/js-unit-test-demo",
   "devDependencies": {
-    "chai": "~1.9.1",
-    "karma": "~0.12.8",
-    "karma-mocha": "~0.1.9",
-    "karma-phantomjs-launcher": "^0.1.4",
-    "karma-sinon-chai": "~0.2.0",
-    "mocha": "~1.20.0",
-    "nock": "^0.46.1",
-    "node-mocks-http": "^1.4.1",
-    "sinon": "1.7.3"
+    "chai": "^3.3.0",
+    "chai-as-promised": "^5.1.0",
+    "karma": "^0.13.11",
+    "karma-html2js-preprocessor": "^0.1.0",
+    "karma-mocha": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-sinon-chai": "^1.1.0",
+    "mocha": "^2.3.3",
+    "node-mocks-http": "^1.4.4",
+    "phantomjs": "^1.9.18",
+    "sinon": "^1.17.1"
   }
 }

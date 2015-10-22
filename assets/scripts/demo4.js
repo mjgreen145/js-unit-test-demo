@@ -1,24 +1,23 @@
-'use strict';
-
 (function(NAP) {
+  'use strict';
 
-    NAP.analytics = {
-      trackSomething: function(data) {
-        console.log(data);
+  NAP.analytics = {
+    trackSomething: function(data) {
+      console.log(data);
+    }
+  };
+
+  NAP.domCode = {
+    init: function() {
+      var button = document.getElementById('super-button');
+
+      if(button) {
+        button.addEventListener('click', function() {
+          NAP.analytics.trackSomething('the button has been clicked!!!');
+        });
       }
-    };
-
-    NAP.domCode = {
-      init: function() {
-        var button = document.getElementById('super-button');
-
-        if(button) {
-          button.addEventListener('click', function() {
-            NAP.analytics.trackSomething('the button has been clicked!!!');
-          });
-        }
-      }
-    };
+    }
+  };
 
 })(NAP);
 

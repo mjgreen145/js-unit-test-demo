@@ -9,6 +9,8 @@ module.exports = function(config) {
         files: [
             // HTML
             // 'templates/*.html',
+            // Stubs
+            'mockData/product.js',
             // Setup
             'assets/test-setup.js',
         	// Actual code

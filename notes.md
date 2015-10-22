@@ -64,3 +64,38 @@ Explain the need to re-run the init function
 Use triggerEvent function
 Replace with document.body.innerHTML = window.__html__['templates/index.html'];
 And explain reasons why this might be better.
+
+## Demo 5 
+
+Show code which makes an API call. Explain how sinon fakeServer can be used to mock this.
+Add tests for invalid JSON, and a full error:
+		
+		it('should call the error callback if invalid JSON', function(done) {
+
+        	server.respondWith('GET', 'http://api.net-a-porter.com/NAP/GB/en/detail/636144', [
+				200,
+				{ 'Content-type': 'application/json' },
+				'{"foo" = "bar"}'
+			]);
+
+        	NAP.productDetails.getProduct('636144', null, function(error){
+        		assert.equal(error, 'Invalid JSON');
+        		done();
+        	});
+
+        	server.respond();
+        });
+
+        it('should call the error callback if server errors', function(done) {
+
+        	server.respondWith('GET', 'http://api.net-a-porter.com/NAP/GB/en/detail/636144', function(xhr){
+        		xhr.onerror();
+        	});
+
+        	NAP.productDetails.getProduct('636144', null, function(error){
+        		assert.equal(error, 'An error occured');
+        		done();
+        	});
+
+        	server.respond();
+        });

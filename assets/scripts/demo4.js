@@ -22,5 +22,5 @@
 })(NAP);
 
 (function(NAP) {
-    NAP.domCode.init();
+  NAP.domCode.init();
 })(NAP);

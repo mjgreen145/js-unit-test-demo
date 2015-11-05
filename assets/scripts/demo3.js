@@ -1,7 +1,7 @@
 (function(NAP) {
   'use strict';
 	
-  NAP = window.NAP ||{};
+  NAP = window.NAP || {};
 
 	NAP.localisation = {
     localiseUrl: function(url, country, language) {

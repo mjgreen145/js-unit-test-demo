@@ -3,7 +3,7 @@
 
 var assert = require('chai').assert;
 
-describe('demo', function() {
+describe('demo #1', function() {
 
 	it('Basic equality', function() {
         assert.equal('Hello World!', 'Hello World!');

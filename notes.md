@@ -14,7 +14,7 @@ Talk about the flow execution of a test suite
 
 ## Demo 3
 
-Talk about testing a function which returns somethign (synchronous)
+Talk about testing a function which returns something (synchronous)
 Also talk about what value tests add, and why to test for edge cases
 
 ## Demo 4
@@ -30,6 +30,11 @@ Talk about the basics of how to test a function which returns a promise
 Demonstrate the test passing with just a resolve handler.
 Make the promise fail and see the test fail, but because of time out.
 Explain Mocha's support for Promises, and refactor the test to be sync, and return the Promise.
+
+        return p.then(function(result) {
+                assert.equal(result, 'It worked!');
+        });
+
 Make even better by adding chai-as-promised
 	- Uncomment both lines at top
 	- replace assert with assert.eventually, and replace result with p
@@ -44,6 +49,8 @@ Replace the spy with a stub
 ## Demo 1
 
 Introduce Karma + Phantom
+
+karma start test/karma.conf.js
 
 ## Demo 2
 
@@ -72,30 +79,28 @@ Add tests for invalid JSON, and a full error:
 		
 		it('should call the error callback if invalid JSON', function(done) {
 
-        	server.respondWith('GET', 'http://api.net-a-porter.com/NAP/GB/en/detail/636144', [
-				200,
-				{ 'Content-type': 'application/json' },
-				'{"foo" = "bar"}'
-			]);
+                server.respondWith('GET', 'http://api.net-a-porter.com/NAP/GB/en/detail/636144', [
+                                200,
+                                { 'Content-type': 'application/json' },
+                                '{"foo" = "bar"}'
+                        ]);
 
-        	NAP.productDetails.getProduct('636144', null, function(error){
-        		assert.equal(error, 'Invalid JSON');
-        		done();
-        	});
+                NAP.productDetails.getProduct('636144', function(error){
+                        assert.equal(error, 'Invalid JSON');
+                        done();
+                });
 
-        	server.respond();
+                server.respond();
         });
 
         it('should call the error callback if server errors', function(done) {
 
-        	server.respondWith('GET', 'http://api.net-a-porter.com/NAP/GB/en/detail/636144', function(xhr){
-        		xhr.onerror();
-        	});
+                server.respondWith('GET', 'http://api.net-a-porter.com/NAP/GB/en/detail/636144', [404, {}, '']);
 
-        	NAP.productDetails.getProduct('636144', null, function(error){
-        		assert.equal(error, 'An error occured');
-        		done();
-        	});
+                NAP.productDetails.getProduct('636144', function(error){
+                        assert.equal(error, 'An error occured');
+                        done();
+                });
 
-        	server.respond();
+                server.respond();
         });

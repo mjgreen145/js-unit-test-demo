@@ -21,7 +21,8 @@
 // 				JSON.stringify(mockProductResponse)
 // 			]);
 
-//         	NAP.productDetails.getProduct('636144', function(data){
+//         	NAP.productDetails.getProduct('636144', function(error, data){
+//         		assert.isNull(error);
 //         		assert.deepEqual(data, mockProductResponse);
 //         		done();
 //         	});
